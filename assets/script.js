@@ -109,6 +109,8 @@ var minLength = 8;
 var choiceArray = [];
 
 function getPasswordCriteria() {
+// Reset choice array for every prompt
+  choiceArray = [];
 
 // Choose password length   
 var passwordLength = parsInt(window.prompt("Choose a password length of at least 8 characters and no more than 128 characters"));
@@ -116,9 +118,38 @@ if (passwordLength > 128 || passwordLength < 8 || isNaN(passwordLength)) {
   window.alert("You must provide a number between 8 and 128.");
   return getPasswordCriteria();
   }
-  else if (window.alert("Your password will be" + passwordLength + " characters."));
+  else if (alert("Your password will be" + passwordLength + " characters."));
+
+// Determine if user wants to include uppercase
+if (confirm("Would you like to include uppercase characters?")) {
+  choiceArray = choiceArray.concat(upperCasedCharacters);
+  alert("Your password will contain uppercase characters.");
+  }
+  else if (alert("Your password will not contain uppercase characters."));
+
+// Determine if user wants to include lowercase
+if (confirm("Would you like to include lowercase characters?")) {
+  choiceArray = choiceArray.concat(lowerCasedCharacters);
+  alert("Your password will contain lowercase characters.");
+  }
+  else if (alert("Your password will not contain lowercase characters."));
+
+// Determine if user wants to include special characters
+if (confirm("Would you like to include special characters?")) {
+  choiceArray = choiceArray.concat(specialCharacters);
+  alert("Your password will contain special characters.");
+  }
+  else if (alert("Your password will not contain special characters."));
+
+// Determine if user wants to include numbers
+if (confirm("Would you like to include numbers?")) {
+  choiceArray = choiceArray.concat(numericCharacters);
+  alert("Your password will contain numbers.");
+  }
+  else if (alert("Your password will not contain numbers."));
 
 }
+
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
