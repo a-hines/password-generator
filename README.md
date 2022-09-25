@@ -27,4 +27,5 @@ Completed project:
 ![home-page](https://user-images.githubusercontent.com/99751726/192152356-74b7e398-c3d0-4fee-b731-f8befc189b4e.jpg)
 
 12 character password generated including all possible critieria (uppercase characters, lowercase characters, special characters, and numeric characters):
+
 ![completed](https://user-images.githubusercontent.com/99751726/192152412-2cabad01-b4fe-41a6-a899-590dd8e42188.jpg)
