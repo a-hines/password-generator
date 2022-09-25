@@ -1,19 +1,8 @@
-// GIVEN I need a new, secure password
-// WHEN I click the button to generate a password
-// THEN I am presented with a series of prompts for password criteria
-// WHEN prompted for password criteria
-// THEN I select which criteria to include in the password
-// WHEN prompted for the length of the password
-// THEN I choose a length of at least 8 characters and no more than 128 characters
-// WHEN asked for character types to include in the password
-// THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
-// WHEN I answer each prompt
-// THEN my input should be validated and at least one character type should be selected
-// WHEN all prompts are answered
-// THEN a password is generated that matches the selected criteria
-// WHEN the password is generated
-// THEN the password is either displayed in an alert or written to the page
-
+var password = document.getElementById("password");
+// Minimum password length
+var passwordLength = 8;
+// Empty array for criteria
+var choiceArray = [];
 
 // Array of uppercase characters to be included in password
 var upperCasedCharacters = [
@@ -102,23 +91,18 @@ var specialCharacters = [
 // Array of numeric characters to be included in password
 var numericCharacters = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
-// Minimum password length
-var passwordLength = 8;
-
-// Empty array for criteria
-var choiceArray = [];
-
 function getPasswordCriteria() {
 // Reset choice array for every prompt
   choiceArray = [];
 
 // Choose password length   
-var passwordLength = parsInt(prompt("Choose a password length of at least 8 characters and no more than 128 characters"));
-if (passwordLength > 128 || passwordLength < 8 || isNaN(passwordLength)) {
+var passwordLength = parseInt(window.prompt("Choose a password length of at least 8 characters and no more than 128 characters"));
+
+if (isNaN(passwordLength) || passwordLength > 128 || passwordLength < 8) {
   alert("You must provide a number between 8 and 128.");
   return getPasswordCriteria();
   }
-  else if (alert("Your password will be" + passwordLength + " characters."));
+  else if (alert("Your password will be " + passwordLength + " characters."));
 
 // Determine if user wants to include uppercase
 if (confirm("Would you like to include uppercase characters?")) {
@@ -148,10 +132,9 @@ if (confirm("Would you like to include numbers?")) {
   }
   else if (alert("Your password will not contain numbers."));
 
-}
+  return true;
 
-// Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
+}
 
 // Function to generate password
 function generatePassword() {
@@ -164,13 +147,22 @@ function generatePassword() {
   return password;
 }
 
+// Get references to the #generate element
+var generateBtn = document.querySelector("#generate");
+
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+  var correctCriteria = getPasswordCriteria();
 
-  passwordText.value = password;
-
+  if (correctCriteria) {
+    var newPassword = generatePassword();
+    var passwordText = document.querySelector("#password");
+    passwordText.value = newPassword;
+  }
+  else {
+    // start criteria prompts again
+    getPasswordCriteria();
+  }
 }
 
 // Add event listener to generate button
