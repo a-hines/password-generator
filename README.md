@@ -1,4 +1,6 @@
 # Password Generator 
+Click [here] (https://a-hines.github.io/[password-generator/) to go to the deployed password generator. 
+
 
 The acceptance critria for this project were as follows: 
 GIVEN I need a new, secure password
@@ -18,4 +20,12 @@ WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page
 
 The html and css were provided for this project, as well as a basic started code in JavaScript (see below):
-![starter-code]()
+![starter-code](https://user-images.githubusercontent.com/99751726/192152308-06743f7f-5cbb-49f1-bed7-563a30fc8591.jpg)
+
+This project asked me to utilize JavaScript to complete the password generator. 
+
+Completed project:
+![home-page](https://user-images.githubusercontent.com/99751726/192152356-74b7e398-c3d0-4fee-b731-f8befc189b4e.jpg)
+
+12 character password generated including all possible critieria (uppercase characters, lowercase characters, special characters, and numeric characters):
+![completed](https://user-images.githubusercontent.com/99751726/192152412-2cabad01-b4fe-41a6-a899-590dd8e42188.jpg)
