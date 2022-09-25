@@ -103,7 +103,7 @@ var specialCharacters = [
 var numericCharacters = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
 // Minimum password length
-var minLength = 8;
+var passwordLength = 8;
 
 // Empty array for criteria
 var choiceArray = [];
@@ -113,9 +113,9 @@ function getPasswordCriteria() {
   choiceArray = [];
 
 // Choose password length   
-var passwordLength = parsInt(window.prompt("Choose a password length of at least 8 characters and no more than 128 characters"));
+var passwordLength = parsInt(prompt("Choose a password length of at least 8 characters and no more than 128 characters"));
 if (passwordLength > 128 || passwordLength < 8 || isNaN(passwordLength)) {
-  window.alert("You must provide a number between 8 and 128.");
+  alert("You must provide a number between 8 and 128.");
   return getPasswordCriteria();
   }
   else if (alert("Your password will be" + passwordLength + " characters."));
@@ -152,6 +152,17 @@ if (confirm("Would you like to include numbers?")) {
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
+
+// Function to generate password
+function generatePassword() {
+  var password = "";
+  for (var i = 0; i < passwordLength; i++) {
+    var randomIndex = Math.floor(Math.random() * choiceArray.length);
+    password = password + choiceArray[randomIndex];
+  }
+
+  return password;
+}
 
 // Write password to the #password input
 function writePassword() {
