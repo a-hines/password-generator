@@ -1,5 +1,5 @@
 # Password Generator 
-Click [here] (https://a-hines.github.io/password-generator/) to go to the deployed password generator. 
+https://a-hines.github.io/password-generator/
 
 The acceptance critria for this project were as follows: 
 GIVEN I need a new, secure password
